@@ -1,0 +1,265 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@font-face {
+    font-family: 'Android';
+    /*Devo me atentar em relação aos pontos antes da barra, porque talvez a src não encontre em qual pasta pode estar a fonte, e pra avisar e só por exemplo: '.' um ponto quer dizer a PASTA ATUAL; '..' dois pontos quer dizer a PASTA ANTERIOR;
+    
+    Mas aqui no meu caso ainda não entendi o porque está funcionando*/
+    src: url('/Desafios/d010/pacote-projeto-d010/fontes/idroid.otf') format('opentype');
+    /*Este de baixo da a grossura da letra*/
+    font-weight: normal;
+}
+
+:root { /*Criando variaves aqui, para melhor prática e agilidade*/
+    --cor0: #A0DBAF;
+    --cor1: #3FA63F;
+    --cor2: #078307;
+    --cor3: #3f9b3f;
+    --cor4: #194319;
+    --cor5: #222F22;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --font-destaque: "Bebas Neue", sans-serif;
+    --fonte-android: "Android", sans-serif;
+    
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+/*Este de baixo quer dizer 'que todo meu link que for da classe externa, depois dele' isso é que depois do link eu vou colocar algo na frente dele pode ser uma imagem ou seja um emoje.*/
+a.externo::after {
+    content: '\00A0\1F517';
+}
+
+/*Aqui perceba que p não é filho de main, porque este 'p' que esta ai, pode estar dentro de main porem não é filho direto de main. Eu usei desta forma porque seu eu colocasse somente p, todos os p seriam pegos com a mesma configuração, mas eu só quis pegar o 'p' que está dentro de main, SACOO.*/
+main p {
+    padding: 10px;
+    /*Cria margem no paragrafo em cima e em baixo, não nas laterais*/
+    margin: 15px 0px;
+    /*Este em baixo serve para alinhar o texto do lado direito e deixar reto.*/
+    text-align: justify;
+    /*Este de baixo é para que cada inicio de parágrafo tenha aquele espaço.*/
+    text-indent: 20px;
+    /*este de baixo é altura entre linhas, tipo espaçamento entre linhas.*/
+    line-height: 2em;
+    /*Este de baixo é o tamanho que vai ficar as fonts de p que estão dentro de main.*/
+    font-size: 1.em;
+}
+
+header {
+    background-color: var(--cor4);
+    min-height: 150px;
+    text-align: center;
+    background-image: linear-gradient(to top, var(--cor4), var(--cor5));
+}
+
+header > h1 {
+    color: rgb(221, 219, 219);
+    font-family: var(--font-destaque);
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 3em;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.39)
+
+}
+
+header > p {
+    color:  rgb(221, 219, 219);
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    padding-bottom: 20px;
+    max-width: 600px;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.459)
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 7px 3px 6px rgba(0, 0, 0, 0.404)
+}
+
+nav > a {
+    color: var(--cor0);
+    padding: 10px;
+    text-decoration: none;
+    /*Deixa em negrito*/
+    font-weight: bold;
+    /*Este é para quando eu mecher o mouse por cima acorre algo, do tipo movimentação das palvras, eu poderia colocar na 'nav > a:hover' também teria mesmo efeito*/
+    transition-duration: 0.5s;
+}
+
+nav > a:hover{ /*Este é,para quando eu passar o mouse em cima dos links que estão na nav, ira acontecer algo.*/
+    color: white;
+    background-color: var(--cor0);
+    /*poderia colocar isso que está embaixo no nav > a também*/
+    border-radius: 10px;
+    /*Colocar o que está embaixo também é legal da uma animação nos link da nav*/
+    padding: 5px;
+    
+}
+
+main {
+    /*min e max para responsividade do site, porem só para o que está escrito, para as imagens é outro*/
+    min-width: 300px;
+    max-width: 1000px;
+    background-color: rgb(221, 219, 219);
+    /*Fica tudo no meio da tela só*/
+    margin: auto; /*centraliza o conteudo*/
+    margin-bottom: 30px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.432);
+    border-radius: 0px 0px 10px 10px;
+}
+
+main h1 {
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+main h2 {
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    /*tamanho da fonte*/
+    font-size: 1.4em;
+    /*Este debaixo vai fazer com que tenha um degrade para o lado direito, e que vá de uma cor até a sua transparência*/
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+    /*Este de baixo faz com que tenha um espaço antes de escrever as palvras, ou seja fazer um espaço.*/
+    text-indent: 8px;
+}
+ 
+/*este seletor é para todo strong que estiver dentro de main*/
+main strong {
+    color: var(--cor5);
+    /*Vai deixar tipo engrossado.*/
+    font-weight: bold;
+
+    /*OCORRE QUE ESTA CONFIGURAÇÃO SERÁ USADA PARA OS LINKS, ENTÃO AS PALAVRAS QUE ESTAVAM COM STRONG SÓ VÃO FICAR EM NEGRITO. */
+    /*
+    este de baixo vai dar a cor de fundo do palavra que estiver dentro de strong
+    background-color: var(--cor0);
+    Este de baixo vai dar aquela abafada entre o que esta escrito e o quadradinho formado pelo background-color.  
+    padding: 2px 6px;
+    */
+
+}
+/*este de baixo é para todos os links que estiverem dentro de main. */
+main a { 
+    background-color: var(--cor0);
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--cor5);
+    /*Este de baixo vai dar aquele abafamento de 2px em baixo e em cima e 6px para cad lado.*/
+    padding: 2px 6px
+
+}
+
+/*Quando eu passar o mouse em cima de 'a' dentro de 'main' */
+main a:hover {
+    /*Este de baixo vai dar um sublinhado mostrando que é um lnk*/
+    text-decoration: underline;
+    /*E também vai mudar de cor*/
+    color: var(--cor3);
+}
+
+main img {
+    width: 100%; /*Faz com que as imagens se espremmam e se adaptem */
+
+}
+
+main img.pequena {
+    /*Antes o que estava escrito aqui era 'width: 50%;' e isso fazia com que a resolução da imagem ficasse embaçada, porisso trocamos por um 'max-width: 350px;*/
+    max-width: 350px;
+    /*Aqui embaixo se eu colocar só 'margin: auto;' não vai funcionar porque, img não é um bloco, então eu tenho que dar um 'display: block' também, Isso agente viu na aula "Tipos de caixa" e tem anotações no meu caderno.*/
+    display: block;
+    margin: auto;
+}
+
+div.video {
+    background-color: var(--cor5);
+    margin-bottom: 30px;
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+    padding-bottom: 58%;
+
+    position: relative;
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside {
+    background-color: var(--cor0);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.226);
+}
+
+aside > h3 {
+    background-color: var(--cor4);
+    color: rgb(221, 219, 219);
+    padding: 20PX;
+    /*o QUE OCORRE É QUE PARA DEIXAR AQUELE QUADRO DO ASIDE COM AS BORDAS DE CIMA REDONDAS E O H3 QUE CONTEM LA DENTRO SE ENCAIXEM E FIQUEM REDONDAS JUSTAM É NECESSÁRIO FAZER O CÓDIGO DE BAIXO.*/
+    
+    /*A de cima '-10px' ; A da direita '-10px' ; A de baixo '0px' ; A da esquerda '-10px', por quê - 10px na da esquerda? porque eu quero que ele cressa 10px para fora*/
+    margin: -10px -10px 0px -10px;
+    /*Usando o código ta tudo bem preciso que ocorra, pórem ele faz com que eu perda o arredondamento da borda de cima, e para ter o arredondamento de volta vamos usar o código de baixo.*/
+    border-radius: 10px 10px 0px 0px; /*As duas pontas de cima arrendondadas, e as de baixo retas */
+
+}
+
+aside > ul {
+    /*Este de baixo faz com que a bolinha criada pelo ul no html fique para dentro, porisso inside e não outside*/
+    list-style-position: inside;
+    /*Este de  baixo fez com que a lista que era comprida para baixo se dividisse em duas colunas.*/
+    columns: 2;
+    /*Este de baixo faz com que mostre um tipo de imoje, o código peguei no 'imogi pedia' um site, mas antes do código se deve colocar uma barra, e esse código só se pega os números e fica assim '\2714' .*/
+    list-style-type: '\2714\00A0\00A0' /*Adicionei mais 0 '\00A0\00A0' para dar uma distância da lista. Outra informação é que esse código não é compatível com alguns navegadores.*/
+}
+
+/*XXXXXXXXXXXX Como tirar esses pontinhos que ficam embaixo da coisas da lista XXXXXXXXXXX*/
+aside > ul > li {
+    text-decoration: none;
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+
+
+}
+
+footer {
+    background-color: var(--cor5);
+    color: rgb(221, 219, 219);
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+/*Como sabemos que 'a' não é filha direta de 'footer', não da para colocar '>', mas dá para fazer desse jeito que está embaixo, ou seja o caminho todo.*/
+footer > p > a {
+    text-decoration: none;
+    color: rgb(221, 219, 219);
+    font-weight: bolder;
+}
+
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor3);
+}
