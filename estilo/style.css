@@ -5,7 +5,7 @@
     /*Devo me atentar em relação aos pontos antes da barra, porque talvez a src não encontre em qual pasta pode estar a fonte, e pra avisar e só por exemplo: '.' um ponto quer dizer a PASTA ATUAL; '..' dois pontos quer dizer a PASTA ANTERIOR;
     
     Mas aqui no meu caso ainda não entendi o porque está funcionando*/
-    src: url('/Desafios/d010/pacote-projeto-d010/fontes/idroid.otf') format('opentype');
+    src: url('/fontes/idroid.otf') format('opentype');
     /*Este de baixo da a grossura da letra*/
     font-weight: normal;
 }
